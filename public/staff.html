@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e23744">
+    <meta name="description" content="Track and update Quickrr food orders.">
+    <title>Order dashboard | Quickrr</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="staff-page">
+    <header class="admin-header">
+        <nav class="admin-nav container" aria-label="Operations navigation">
+            <a class="wordmark" href="staff.html" aria-label="Quickrr order dashboard">quickrr<span>.</span></a>
+            <div class="admin-nav-right">
+                <span class="admin-identity" id="staff-name">Staff</span>
+                <button class="logout-button" id="staff-logout" type="button">Sign out</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="staff-main container staff-layout">
+        <aside class="staff-sections" id="staff-sections" data-current="orders" aria-label="Dashboard sections">
+            <p class="staff-sections-title">Sections</p>
+            <a class="staff-section-link active" href="/staff.html" aria-current="page">Orders</a>
+            <a class="staff-section-link" href="/staff-menu.html">Menu management</a>
+            <a class="staff-section-link" href="/settings.html">Settings</a>
+        </aside>
+
+        <div class="staff-content">
+            <section class="staff-heading" aria-labelledby="staff-title">
+                <div>
+                    <p class="eyebrow section-eyebrow">QUICKRR OPERATIONS</p>
+                    <h1 id="staff-title">Order dashboard</h1>
+                    <p class="staff-subtitle">Work the oldest order first: prepare it, mark it ready for pickup, then mark it collected.</p>
+                </div>
+                <button class="filter-button staff-refresh" id="refresh-orders" type="button">Refresh orders</button>
+            </section>
+
+            <section class="order-summary" aria-label="Order status totals">
+                <article class="order-summary-card">
+                    <span>All orders</span>
+                    <strong id="count-all">—</strong>
+                </article>
+                <article class="order-summary-card">
+                    <span>Pending</span>
+                    <strong id="count-pending">0</strong>
+                </article>
+                <article class="order-summary-card">
+                    <span>Accepted</span>
+                    <strong id="count-accepted">0</strong>
+                </article>
+                <article class="order-summary-card">
+                    <span>Preparing</span>
+                    <strong id="count-preparing">0</strong>
+                </article>
+                <article class="order-summary-card">
+                    <span>Ready</span>
+                    <strong id="count-ready">0</strong>
+                </article>
+            </section>
+
+            <section class="staff-orders-panel" aria-label="Orders">
+                <form class="staff-toolbar" id="order-filters">
+                    <label class="admin-search">
+                        <span class="search-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Search orders</span>
+                        <input id="order-search" type="search" maxlength="100" placeholder="Search order number or customer">
+                    </label>
+                    <label class="status-filter">
+                        <span class="visually-hidden">Filter by order status</span>
+                        <select id="order-status">
+                            <option value="">All statuses</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Accepted">Accepted</option>
+                            <option value="Preparing">Preparing</option>
+                            <option value="Ready">Ready to pick up</option>
+                            <option value="Collected">Collected</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                    </label>
+                    <button class="filter-button" type="submit">Apply filters</button>
+                </form>
+
+                <p class="staff-feedback" id="staff-message" role="status" aria-live="polite"></p>
+                <div class="order-list" id="order-list" aria-live="polite"></div>
+                <div class="empty-orders" id="empty-orders" hidden>
+                    <span aria-hidden="true">✦</span>
+                    <h2>No orders found</h2>
+                    <p id="empty-orders-message">Orders will appear here when students place them.</p>
+                </div>
+                <div class="staff-pagination">
+                    <span id="pagination-summary">Loading orders…</span>
+                    <div class="pagination-controls">
+                        <button class="page-button" id="previous-page" type="button" aria-label="Previous page">←</button>
+                        <span id="page-indicator">—</span>
+                        <button class="page-button" id="next-page" type="button" aria-label="Next page">→</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/theme.js"></script>
+    <script src="js/staff.js"></script>
+</body>
+
+</html>

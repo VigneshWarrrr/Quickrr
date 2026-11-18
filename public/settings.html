@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e23744">
+    <meta name="description" content="Manage your Quickrr password and appearance.">
+    <title>Settings | Quickrr</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="staff-page settings-page">
+    <header class="admin-header">
+        <nav class="admin-nav container" aria-label="Account navigation">
+            <a class="wordmark" id="settings-home-link" href="/" aria-label="Quickrr dashboard">quickrr<span>.</span></a>
+            <div class="admin-nav-right">
+                <span class="admin-identity" id="settings-user-name">Account</span>
+                <button class="logout-button" id="settings-logout" type="button">Sign out</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="staff-main container staff-layout">
+        <aside class="staff-sections" id="settings-sections" aria-label="Dashboard sections"></aside>
+        <div class="staff-content">
+            <section class="staff-heading" aria-labelledby="settings-title">
+                <div>
+                    <p class="eyebrow section-eyebrow">ACCOUNT PREFERENCES</p>
+                    <h1 id="settings-title">Settings</h1>
+                    <p class="staff-subtitle">Change your password or choose the theme used across your dashboards.</p>
+                </div>
+            </section>
+
+            <section class="settings-panel" aria-labelledby="theme-title">
+                <div class="settings-panel-heading">
+                    <div>
+                        <p class="eyebrow section-eyebrow">APPEARANCE</p>
+                        <h2 id="theme-title">Website theme</h2>
+                    </div>
+                    <span class="settings-current-value" id="theme-current">Loading…</span>
+                </div>
+                <form id="theme-form" class="settings-theme-form">
+                    <label class="theme-choice">
+                        <input type="radio" name="theme" value="light">
+                        <span><strong>Light</strong><small>Bright surfaces and dark text</small></span>
+                    </label>
+                    <label class="theme-choice">
+                        <input type="radio" name="theme" value="dark">
+                        <span><strong>Dark</strong><small>Dark surfaces and comfortable contrast</small></span>
+                    </label>
+                    <button class="filter-button" id="save-theme" type="submit">Save theme</button>
+                </form>
+                <p class="settings-message" id="theme-message" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="settings-panel" aria-labelledby="password-title">
+                <div class="settings-panel-heading">
+                    <div>
+                        <p class="eyebrow section-eyebrow">SECURITY</p>
+                        <h2 id="password-title">Change password</h2>
+                    </div>
+                </div>
+                <form id="password-form" class="settings-password-form">
+                    <label for="current-password">Current password</label>
+                    <input id="current-password" name="currentPassword" type="password"
+                        autocomplete="current-password" maxlength="200" required>
+
+                    <label for="new-password">New password</label>
+                    <input id="new-password" name="newPassword" type="password"
+                        autocomplete="new-password" minlength="12" maxlength="200" required>
+
+                    <label for="confirm-password">Confirm new password</label>
+                    <input id="confirm-password" name="confirmPassword" type="password"
+                        autocomplete="new-password" minlength="12" maxlength="200" required>
+
+                    <button class="filter-button" id="save-password" type="submit">Update password</button>
+                </form>
+                <p class="settings-message" id="password-message" role="status" aria-live="polite"></p>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/settings.js"></script>
+</body>
+
+</html>

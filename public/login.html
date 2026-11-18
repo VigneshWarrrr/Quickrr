@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e23744">
+    <meta name="description" content="Sign in to Quickrr as a student, administrator or staff member.">
+    <title>Sign in | Quickrr</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="auth-page">
+    <header class="auth-nav container">
+        <a class="wordmark" href="/" aria-label="Quickrr sign in">quickrr<span>.</span></a>
+    </header>
+
+    <main class="auth-main">
+        <section class="auth-card" aria-labelledby="login-title">
+            <div class="auth-mark" aria-hidden="true">✦</div>
+            <p class="eyebrow auth-eyebrow">YOUR CAMPUS, YOUR CRAVINGS</p>
+            <h1 id="login-title">Welcome back</h1>
+            <p class="auth-subtitle">Choose your role and sign in to your Quickrr account.</p>
+
+            <form id="login-form" class="auth-form">
+                <label for="login-role">Sign in as</label>
+                <select id="login-role" name="role" required>
+                    <option value="student">Student</option>
+                    <option value="admin">Admin</option>
+                    <option value="staff">Staff</option>
+                </select>
+
+                <label for="login-identifier" id="login-identifier-label">Email address</label>
+                <input
+                    id="login-identifier"
+                    name="identifier"
+                    type="text"
+                    placeholder="you@college.edu or username"
+                    maxlength="254"
+                    title="Enter your student email address or username."
+                    autocomplete="username"
+                    required>
+
+                <label for="login-password">Password</label>
+                <input
+                    id="login-password"
+                    name="password"
+                    type="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required>
+
+                <button class="auth-submit" type="submit">Sign in <span aria-hidden="true">→</span></button>
+                <p class="auth-message" id="login-message" role="status" aria-live="polite"></p>
+            </form>
+
+            <p class="auth-note" id="login-note">Use the email and password assigned to your selected account role.</p>
+        </section>
+    </main>
+
+    <script src="js/login.js"></script>
+</body>
+
+</html>

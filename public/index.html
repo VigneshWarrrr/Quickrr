@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e23744">
+    <meta name="description" content="Discover and order your favourite campus food with Quickrr.">
+    <title>Quickrr | Campus food, on your time</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="nav container" aria-label="Main navigation">
+            <a class="wordmark" href="#" aria-label="Quickrr home">quickrr<span>.</span></a>
+            <div class="nav-links">
+                <a href="#menu">Explore menu</a>
+                <a href="#how-it-works">How it works</a>
+            </div>
+            <div class="student-nav-actions">
+                <a class="login-link" href="#cart">Cart <span id="cart-count">0</span></a>
+                <button class="logout-button" id="student-logout" type="button">Sign out</button>
+            </div>
+        </nav>
+
+        <section class="hero container" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR CAMPUS, YOUR CRAVINGS</p>
+                <h1 id="hero-title">Good food.<br><span>Zero queue.</span></h1>
+                <p class="hero-description">The campus favourites you love, ready when you are. Find your next go-to bite.</p>
+
+                <form class="search-bar" id="menu-search" role="search">
+                    <label class="location-field">
+                        <span class="field-icon" aria-hidden="true">⌖</span>
+                        <span class="visually-hidden">Campus location</span>
+                        <input type="text" name="location" placeholder="Your campus" aria-label="Your campus">
+                    </label>
+                    <span class="search-divider" aria-hidden="true"></span>
+                    <label class="food-field">
+                        <span class="field-icon search-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Search menu</span>
+                        <input id="food-search" type="search" name="food" placeholder="Search dishes or categories" aria-label="Search dishes or categories">
+                    </label>
+                    <button class="search-button" type="submit">Find food</button>
+                </form>
+                <p class="search-hint">Try “pizza”, “coffee” or “something spicy”</p>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+                <div class="hero-ring"></div>
+                <div class="hero-orbit orbit-one"></div>
+                <div class="hero-orbit orbit-two"></div>
+                <div class="hero-plate"><span>🍜</span></div>
+                <div class="hero-note"><span class="note-icon">✦</span> Your next favourite<br>is just a tap away</div>
+                <span class="hero-spark spark-one">✳</span>
+                <span class="hero-spark spark-two">✦</span>
+            </div>
+        </section>
+    </header>
+
+    <main class="student-dashboard-layout container">
+        <aside class="staff-sections student-sections" aria-label="Student sections">
+            <p class="staff-sections-title">Sections</p>
+            <a class="staff-section-link active" href="/index.html" aria-current="page">Menu &amp; orders</a>
+            <a class="staff-section-link" href="/settings.html">Settings</a>
+        </aside>
+        <div class="student-dashboard-content">
+        <section class="menu-section" id="menu" aria-labelledby="menu-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow section-eyebrow">MADE FOR YOUR BREAK</p>
+                    <h2 id="menu-title">What are you craving?</h2>
+                    <p class="section-description">A little something for every kind of hungry.</p>
+                </div>
+                <a class="text-link" href="#menu-grid">See all menu items <span aria-hidden="true">→</span></a>
+            </div>
+
+            <div class="category-list" aria-label="Popular categories">
+                <a class="category-chip active" href="#menu-grid"><span>🍽️</span> All food</a>
+                <a class="category-chip" href="#menu-grid" data-category-filter="Meals"><span>🍛</span> Meals</a>
+                <a class="category-chip" href="#menu-grid" data-category-filter="Snacks"><span>🥪</span> Snacks</a>
+                <a class="category-chip" href="#menu-grid" data-category-filter="Drinks"><span>🥤</span> Drinks</a>
+                <a class="category-chip" href="#menu-grid" data-category-filter="Desserts"><span>🧁</span> Desserts</a>
+            </div>
+
+            <div class="menu-grid" id="menu-grid" aria-live="polite">
+            </div>
+            <p class="empty-state" id="empty-state" hidden>No menu items match that search. Try another dish or category.</p>
+        </section>
+
+        <section class="student-orders-section" id="cart" aria-label="Your cart and orders">
+            <div class="student-cart-panel">
+                <div class="student-panel-heading">
+                    <div>
+                        <p class="eyebrow section-eyebrow">READY WHEN YOU ARE</p>
+                        <h2>Your cart</h2>
+                    </div>
+                    <span class="cart-item-count" id="cart-item-count">0 items</span>
+                </div>
+                <div class="cart-lines" id="cart-lines"></div>
+                <p class="cart-empty" id="cart-empty">Your cart is empty. Add something tasty from the menu.</p>
+                <div class="cart-checkout">
+                    <strong>Total <span id="cart-total">₹0.00</span></strong>
+                    <button class="search-button checkout-button" id="place-order" type="button" disabled>Place order</button>
+                </div>
+                <p class="student-feedback" id="student-message" role="status" aria-live="polite"></p>
+            </div>
+
+            <div class="student-order-history">
+                <div class="student-panel-heading">
+                    <div>
+                        <p class="eyebrow section-eyebrow">ORDER UPDATES</p>
+                        <h2>Your recent orders</h2>
+                    </div>
+                    <button class="text-link" id="refresh-my-orders" type="button">Refresh</button>
+                </div>
+                <div class="my-order-list" id="my-order-list"></div>
+                <p class="cart-empty" id="orders-empty">Your placed orders will appear here.</p>
+            </div>
+        </section>
+
+        <section class="how-section" id="how-it-works">
+            <div class="how-content">
+                <div>
+                    <p class="eyebrow section-eyebrow">CAMPUS FOOD, MADE EASY</p>
+                    <h2>Your break, back in your hands.</h2>
+                </div>
+                <p>Add your favourites to the cart, place an order, and track its progress while staff prepare it in queue order.</p>
+                <a class="browse-button" href="#menu">Browse the menu <span aria-hidden="true">→</span></a>
+            </div>
+        </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <a class="wordmark footer-wordmark" href="#">quickrr<span>.</span></a>
+            <p>Good food, right around the corner.</p>
+            <span>Made for campus life</span>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

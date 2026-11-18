@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e23744">
+    <meta name="description" content="Manage Quickrr menu items and prices.">
+    <title>Menu management | Quickrr</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="staff-page">
+    <header class="admin-header">
+        <nav class="admin-nav container" aria-label="Operations navigation">
+            <a class="wordmark" href="/staff.html" aria-label="Quickrr order dashboard">quickrr<span>.</span></a>
+            <div class="admin-nav-right">
+                <span class="admin-identity" id="staff-name">Staff</span>
+                <button class="logout-button" id="staff-logout" type="button">Sign out</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="staff-main container staff-layout">
+        <aside class="staff-sections" id="staff-sections" data-current="menu" aria-label="Dashboard sections">
+            <p class="staff-sections-title">Sections</p>
+            <a class="staff-section-link" href="/staff.html">Orders</a>
+            <a class="staff-section-link active" href="/staff-menu.html" aria-current="page">Menu management</a>
+            <a class="staff-section-link" href="/settings.html">Settings</a>
+        </aside>
+
+        <div class="staff-content">
+            <section class="staff-heading" aria-labelledby="staff-menu-title">
+                <div>
+                    <p class="eyebrow section-eyebrow">QUICKRR OPERATIONS</p>
+                    <h1 id="staff-menu-title">Menu management</h1>
+                    <p class="staff-subtitle">Update item details and prices, or make items unavailable to students.</p>
+                </div>
+                <button class="filter-button staff-refresh" id="refresh-menu" type="button">Refresh menu</button>
+            </section>
+
+            <section class="staff-menu-panel" aria-label="Add a menu item">
+                <h2>Add menu item</h2>
+                <form class="staff-menu-form" id="create-menu-form">
+                    <label>
+                        <span>Item name</span>
+                        <input name="name" maxlength="100" required>
+                    </label>
+                    <label>
+                        <span>Price (₹)</span>
+                        <input name="price" type="number" min="0.01" max="99999999.99" step="0.01" required>
+                    </label>
+                    <label>
+                        <span>Category</span>
+                        <input name="category" maxlength="50" placeholder="Meals, Snacks, Drinks…">
+                    </label>
+                    <label class="staff-menu-description">
+                        <span>Description</span>
+                        <input name="description" maxlength="1000">
+                    </label>
+                    <button class="filter-button" id="create-menu-button" type="submit">Add item</button>
+                </form>
+                <p class="staff-feedback" id="menu-message" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="staff-menu-panel" aria-label="Menu items">
+                <div class="staff-menu-list-heading">
+                    <h2>Menu items</h2>
+                    <span id="menu-item-count">Loading…</span>
+                </div>
+                <div class="staff-menu-list" id="staff-menu-list"></div>
+                <div class="empty-orders" id="empty-menu" hidden>
+                    <span aria-hidden="true">✦</span>
+                    <h2>No menu items yet</h2>
+                    <p>Add an item above to make it available on the student menu.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/theme.js"></script>
+    <script src="js/staff-menu.js"></script>
+</body>
+
+</html>
